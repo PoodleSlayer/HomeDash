@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="HomeDash.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HomeDash"
+	xmlns:WinUI="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+		<WinUI:NavigationView x:Name="NavView"
+			PaneDisplayMode="Top"
+			Loaded="NavLoaded"
+			SelectionChanged="NavSelectionChanged"
+			ItemInvoked="NavItemInvoked">
+			<WinUI:NavigationView.PaneHeader>
+				<ContentControl VerticalAlignment="Center">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="HomeDash" />
+					</StackPanel>
+				</ContentControl>
+			</WinUI:NavigationView.PaneHeader>
+				<WinUI:NavigationView.MenuItems>
+				<WinUI:NavigationViewItem Content="Home" Tag="HomePage" />
+				<WinUI:NavigationViewItem Content="Weather" Tag="WeatherPage" />
+				<WinUI:NavigationViewItem Content="Cats" Tag="CatsPage" />
+			</WinUI:NavigationView.MenuItems>
+			<Frame x:Name="contentFrame" />
+		</WinUI:NavigationView>
+    </Grid>
+</Page>
