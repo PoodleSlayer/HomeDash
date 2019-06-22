@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using HomeDash.IoC;
+using HomeDash.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +25,18 @@ namespace HomeDash.Views
 	/// </summary>
 	public sealed partial class WeatherPage : Page
 	{
+		public static readonly string PageKey = "WeatherPage";
+
 		public WeatherPage()
 		{
 			this.InitializeComponent();
+
+			DataContext = AppContainer.Container.Resolve<WeatherPageViewModel>();
+		}
+
+		protected override void OnNavigatedTo(NavigationEventArgs e)
+		{
+			base.OnNavigatedTo(e);
 		}
 	}
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using HomeDash.IoC;
+using HomeDash.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +25,13 @@ namespace HomeDash.Views
 	/// </summary>
 	public sealed partial class SettingsPage : Page
 	{
+		public static readonly string PageKey = "SettingsPage";
+
 		public SettingsPage()
 		{
 			this.InitializeComponent();
+
+			DataContext = AppContainer.Container.Resolve<SettingsPageViewModel>();
 		}
 	}
 }

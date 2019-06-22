@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autofac;
+using HomeDash.IoC;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +32,9 @@ namespace HomeDash
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+			// init the autofac container
+			AppContainer.Container = new AppSetup().CreateContainer();
         }
 
         /// <summary>

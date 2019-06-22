@@ -12,6 +12,8 @@
     <Grid>
 		<WinUI:NavigationView x:Name="NavView"
 			PaneDisplayMode="Top"
+			IsBackEnabled="{Binding CanGoBack}"
+			BackRequested="NavBackRequested"
 			Loaded="NavLoaded"
 			SelectionChanged="NavSelectionChanged"
 			ItemInvoked="NavItemInvoked">
